@@ -1,0 +1,13 @@
+# FROM ~~~ : ~~~를 다운받아와라!  
+# RUN ~~~ : ~~~명령어 실행해줘!
+
+
+FROM node:14
+
+WORKDIR /myfolder/
+COPY ./package.json /myfolder/
+COPY ./yarn.lock /myfolder/
+RUN yarn install
+
+COPY . /myfolder/
+CMD yarn dev

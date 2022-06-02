@@ -1,0 +1,71 @@
+// => 데이터베이스 보여줘
+show databases
+;
+
+// => 이 데이터베이스 쓸거야
+use myproject03
+;
+
+
+// => 테이블 보여줘
+show tables
+;
+
+
+// => 폴더 설명해줘
+desc product
+;
+
+
+// => 찾아와라 ~로부터 전체파일을(*)
+select *
+  from product
+;
+
+
+// => 프로덕트 테이블에 ()데이터를 삽입해줘. 넣어줘
+//	()데이터의 값은(uuid()는 데이터베이스내장함수. id는 uuid로 자동생성. 이름 "", des "", isSoldout여부는 boolean으로 
+insert into product (id, name, description, price, isSoldout)
+				values(uuid(), "마우스", "정말 좋은 마우스!!", 1500, false)
+;
+
+
+// => 수정하기. 근데 이거 쓰려면 조건(where)가 꼭 있어야함. 안그럼 전체가 바뀜.
+insert into product (id, name, description, price, isSoldout)
+				values(uuid(), "노트북", "최신 맥북!!", 20000, false)
+;
+
+
+
+select *
+	from product_saleslocation
+;
+
+insert into product_saleslocation(id, address, adressDetail, lat, lng, meetingTime)
+								values(uuid(),"구로구", "구로디지털단지", "0.0", "0.1", "2022-12-31")
+;
+
+update product
+	set name = "키보드"
+where price = 1500
+;
+
+update product
+	set productSaleslocationId = "c9e5377f-dff5-11ec-a0a8-d83bbf4e1f1f"
+where name = "키보드" and price = 1500
+;
+
+update product
+	set productSaleslocationId = "c9e5377f-dff5-11ec-a0a8-d83bbf4e1f1f"
+where name = "키보드" and name = "마우스"
+;
+
+select *
+	from product
+;
+
+select p.id, name, price, address, adressDetail as "상세주소"
+	from product p, product_saleslocation ps 
+where p.productSaleslocationId = ps.id  
+;
+	

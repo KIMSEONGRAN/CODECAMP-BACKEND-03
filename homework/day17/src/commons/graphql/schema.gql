@@ -1,0 +1,32 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Work {
+  id: String!
+  title: String!
+  content: String!
+  isComplete: Boolean!
+}
+
+type Query {
+  fetchWorks: [Work!]!
+  fetchWork(workId: String!): Work!
+}
+
+type Mutation {
+  createWork(createWorkInput: CreateWorkInput!): Work!
+  updateWork(workId: String!, updateWorkInput: UpdateWorkInput!): Work!
+}
+
+input CreateWorkInput {
+  title: String!
+  content: String!
+  isComplete: Boolean!
+}
+
+input UpdateWorkInput {
+  title: String
+  content: String
+  isComplete: Boolean
+}
