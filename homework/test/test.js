@@ -812,7 +812,7 @@
 // let map = new Map()
 // let key = 3
 // let val = 5
-// map.set(key,val)
+// console.log(map.set(key,val))
 // map.set(2,4)
 // console.log(map.get(2))
 
@@ -848,10 +848,150 @@
 // WhatIsRecursion_02(0);
 
 
-var search = function(nums, target) {
-  if(true) {
-    console.log(nums.length % 2)
-  }
+// var search = function(nums, target) {
+//   if(true) {
+//     console.log(nums.length / 2)
+//   }
     
-};
-search([-1,0,3,5,9,12], 9)
+// };
+// search([-1,0,3,5,9,12], 9)
+////////////////////////////////////////////////////////////////////////
+// 프로그래머스 과제중---------------------------------
+// function solution(participant, completion) {
+//     let a = new Set(participant);
+//   	let b = new Set(completion);
+  
+  
+//   let arr3 = participant.filter(x => b.has(x));
+//   console.log(arr3);
+  
+  
+// //   let arr3 = new Set([...a].filter(x => !b.has(x)));
+  
+// //   console.log([...arr3][0])
+    
+// }
+// solution(["mislav", "stanko", "mislav", "ana"], ["stanko", "ana", "mislav"])
+///--------------------------------------------------------------
+// function sortNum(arr){
+//   arr.sort((a,b) => a > b ? -1 : 1)
+//   console.log(arr)
+// }
+
+// sortNum([ 23, 76, 400, 501 ])
+////////////////////////////////////////////////////////////////
+
+// function makeChange(change) {
+//   let count = 0;
+//   let money = change;
+  
+//   while(money >= 500){
+//     money = money - 500
+//     count++;
+//   }
+//   while(money >= 100){
+//     money = money - 100
+//     count++;
+//   }
+//   while(money >= 50){
+//     money = money - 50
+//     count++;
+//   }
+//   while(money >= 10){
+//     money = money - 10
+//     count++;
+//   }
+//   while(money >= 1){
+//     money = money - 1
+//     count++;
+//   }
+  
+  
+//   return count
+// }
+
+// makeChange(4730)
+
+///////////////////////////////////////////
+
+// class Counter {
+//   #value
+//   constructor(starValue) {
+//     if(isNaN(startValue) || startValue < 0){
+//       this.#value = 0;
+//     } else {
+//       this.#value = startValue;
+//     }
+//   }
+
+// get value() {
+//   return this.#value;
+// }
+// increment = () => {
+//   this.#value++;
+// }
+// }
+
+// const counter = new Counter(0);
+// counter.increment();
+// console.log(counter.value)
+// --------------------------------------------------------
+// function solution(s, n) {  
+//   let a = ""; 
+  
+//   for(let i = 0; i < s.length; i++) {
+//     let word = s[i].charCodeAt()
+//     if(word === 32) {}
+//     if(word <= 90){
+//     	let c = String.fromCharCode()
+//       if(word > 90){}
+//     }
+    
+//     if(word >= 97){
+//       if(word > 122) {}
+//     }
+    
+//   }
+//     let b = s[i].charCodeAt()
+//     if(s[i].charCodeAt() === 122){
+//       b = 
+//     }
+    
+//     let c = a + String.fromCharCode(b+n)
+//     console.log(c)
+//   	// if()
+//   }
+//   console.log(a);
+// }
+// " ".charCodeAt()
+// String.fromCharCode(97)
+
+// solution("AB", 1)
+// solution("a B z"	, 4)
+//--------------------------------------------------------
+
+function thisIsOnlySeven(str) {
+  let arr = str.split("")
+  function recursion(count) {
+    // 여기에 코드를 작성하세요
+    if(arr.length === 1) {
+      str = arr.join('')
+      return count;
+    }
+    if(arr[arr.length -1] !== '7'){
+      console.log(count);
+      arr.pop()
+      count++
+    }
+    if(arr[0] !== '7') {
+      console.log(count);
+      arr.shift()
+      count++
+    }
+    return recursion(count)
+  }
+
+  // return recursion(0);
+}
+
+thisIsOnlySeven("1234567890")

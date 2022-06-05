@@ -1,0 +1,76 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Artist {
+  id: String!
+  name: String!
+}
+
+type Writer {
+  id: String!
+  name: String!
+}
+
+type Day {
+  id: String!
+  day: DateTime!
+  works: [Work!]!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Genre {
+  genre: String!
+  works: [Work!]!
+}
+
+type Work {
+  id: String!
+  title: String!
+  content: String!
+  isComplete: Boolean!
+  artist: Artist!
+  writer: Writer!
+  genres: [Genre!]!
+  days: [Day!]!
+}
+
+type Query {
+  fetchWorks: [Work!]!
+  fetchWork(workId: String!): Work!
+  fetchProductsWithDeleted(workId: String!): [Work!]!
+}
+
+type Mutation {
+  createWork(createWorkInput: CreateWorkInput!): Work!
+  updateWork(workId: String!, updateWorkInput: UpdateWorkInput!): Work!
+  deleteWork(workId: String!): Boolean!
+  restoreProduct(workId: String!): Boolean!
+  createWriter(name: String!): Artist!
+}
+
+input CreateWorkInput {
+  title: String!
+  content: String!
+  artist: CreateArtistInput!
+  writer: CreateWriterInput!
+}
+
+input CreateArtistInput {
+  name: String!
+}
+
+input CreateWriterInput {
+  name: String!
+}
+
+input UpdateWorkInput {
+  title: String
+  content: String
+  artist: CreateArtistInput
+  writer: CreateWriterInput
+}
