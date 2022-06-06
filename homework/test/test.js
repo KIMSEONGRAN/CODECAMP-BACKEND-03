@@ -936,62 +936,80 @@
 // counter.increment();
 // console.log(counter.value)
 // --------------------------------------------------------
-// function solution(s, n) {  
-//   let a = ""; 
+function solution(s, n) {  
+  let a = ""; 
   
-//   for(let i = 0; i < s.length; i++) {
-//     let word = s[i].charCodeAt()
-//     if(word === 32) {}
-//     if(word <= 90){
-//     	let c = String.fromCharCode()
-//       if(word > 90){}
-//     }
+  for(let i = 0; i < s.length; i++) {
+    let word = s[i].charCodeAt()
     
-//     if(word >= 97){
-//       if(word > 122) {}
-//     }
+    if(word === 32) {
+    	a += String.fromCharCode(word)
+    }
+    if(word <= 90 && word > 32){
+      if(word+n > 90){
+        let e = word + n - 26
+        a += String.fromCharCode(e)
+      } else {
+        	let b = s[i].charCodeAt() + n;
+      		a += String.fromCharCode(b)
+      }
+    }
+    if(word >= 97 && word < 123){
+      if(word+n > 123){
+        let e = word + n - 26
+        a += String.fromCharCode(e)
+      } else {
+        let c = s[i].charCodeAt()+n;
+        a += String.fromCharCode(c)
+      }
+    }
+  }
+    return a
+ }   
+
+    
+//     
     
 //   }
 //     let b = s[i].charCodeAt()
 //     if(s[i].charCodeAt() === 122){
-//       b = 
 //     }
     
 //     let c = a + String.fromCharCode(b+n)
 //     console.log(c)
 //   	// if()
-//   }
-//   console.log(a);
-// }
-// " ".charCodeAt()
-// String.fromCharCode(97)
+  
+
+
+// " ".charCodeAt() // 32
+// String.fromCharCode(97) // 'a'
 
 // solution("AB", 1)
+solution("z", 1)
 // solution("a B z"	, 4)
 //--------------------------------------------------------
 
-function thisIsOnlySeven(str) {
-  let arr = str.split("")
-  function recursion(count) {
-    // 여기에 코드를 작성하세요
-    if(arr.length === 1) {
-      str = arr.join('')
-      return count;
-    }
-    if(arr[arr.length -1] !== '7'){
-      console.log(count);
-      arr.pop()
-      count++
-    }
-    if(arr[0] !== '7') {
-      console.log(count);
-      arr.shift()
-      count++
-    }
-    return recursion(count)
-  }
+// function thisIsOnlySeven(str) {
+//   let arr = str.split("")
+//   function recursion(count) {
+//     // 여기에 코드를 작성하세요
+//     if(arr.length === 1) {
+//       console.log(count);
+//       str = arr.join('')
+//       return count;
+//     }
+//     if(arr[arr.length - 1] !== '7'){
+//       arr.pop()
+//       count++
+//     }
+//     if(arr[0] !== '7') {
+//       arr.shift()
+//       count++
+//     }
+//     return recursion(count)
+//   }
 
-  // return recursion(0);
-}
+//   return recursion(0);
+// }
 
-thisIsOnlySeven("1234567890")
+// thisIsOnlySeven("1234567890")
