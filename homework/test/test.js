@@ -949,13 +949,13 @@ function solution(s, n) {
       if(word+n > 90){
         let e = word + n - 26
         a += String.fromCharCode(e)
-      } else {
+      } else {        
         	let b = s[i].charCodeAt() + n;
       		a += String.fromCharCode(b)
       }
     }
     if(word >= 97 && word < 123){
-      if(word+n > 123){
+      if(word+n > 122){
         let e = word + n - 26
         a += String.fromCharCode(e)
       } else {
@@ -965,7 +965,7 @@ function solution(s, n) {
     }
   }
     return a
- }   
+ }
 
     
 //     
@@ -985,8 +985,45 @@ function solution(s, n) {
 // String.fromCharCode(97) // 'a'
 
 // solution("AB", 1)
-solution("z", 1)
+// solution("z", 1)
 // solution("a B z"	, 4)
+
+//리팩토링
+
+// function solution(s, n) {  
+//   let a = ""; 
+  
+//   for(let i = 0; i < s.length; i++) {
+//     let word = s[i].charCodeAt()
+    
+//     if(word === 32) {
+//     	a += String.fromCharCode(word)
+//     }
+//     if(word <= 90 && word > 32){
+//       if(word+n > 90){
+//         let e = word + n - 26
+//         a += String.fromCharCode(e)
+//       } else {        
+//         	let b = s[i].charCodeAt() + n;
+//       		a += String.fromCharCode(b)
+//       }
+//     }
+//     if(word >= 97 && word < 123){
+//       if(word+n > 122){
+//         let e = word + n - 26
+//         a += String.fromCharCode(e)
+//       } else {
+//         let c = s[i].charCodeAt()+n;
+//         a += String.fromCharCode(c)
+//       }
+//     }
+//   }
+//     return a
+//  }
+
+
+
+
 //--------------------------------------------------------
 
 // function thisIsOnlySeven(str) {
@@ -1013,3 +1050,13 @@ solution("z", 1)
 // }
 
 // thisIsOnlySeven("1234567890")
+
+//////////////////////////////////////////////////////////////
+let arr = [0,1,2,3,4,5,6,7,8,9]
+let arr2 = ["one", "two", "three", "four", "five", "six", "seven", "eigtht", "nine"]
+
+function solution(){}
+
+
+// let a = "a".charCodeAt()
+// String.fromCharCode(a)

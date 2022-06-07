@@ -62,7 +62,7 @@ type Mutation {
   restoreProduct(workId: String!): Boolean!
   createWriter(name: String!): Artist!
   updateUser(userId: String!, updateUserInput: UpdateUserInput!): User!
-  createUser(email: String!, phoneNum: String!, name: String!, pwd: String!): User!
+  createUser(CreateUserInput: CreateUserInput!): User!
   deleteUser(userId: String!): Boolean!
   restoreUser(userId: String!): Boolean!
 }
@@ -95,4 +95,12 @@ input UpdateUserInput {
   pwd: String
   name: String
   email: String
+  phoneNum: String
+}
+
+input CreateUserInput {
+  pwd: String!
+  name: String!
+  email: String!
+  phoneNum: String!
 }
