@@ -3,19 +3,26 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ArtistModule } from './apis/artists/artist.module';
+import { FileModule } from './apis/file/file.module';
+import { ImageModule } from './apis/images/image.module';
+import { PaymentModule } from './apis/payment/payment.module';
 import { AuthModule } from './apis/users/auth/auth.module';
 import { UserModule } from './apis/users/user.module';
+import { WebtoonModule } from './apis/webtoons/webtoon.module';
 import { WorkModule } from './apis/works/work.module';
 import { WriterModule } from './apis/writers/writer.module';
 
 @Module({
   imports: [
+    ImageModule,
     WorkModule,
+    WebtoonModule,
     WriterModule,
     ArtistModule,
     UserModule,
     AuthModule,
-    // ProductCategoryModule,
+    PaymentModule,
+    FileModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: 'src/commons/graphql/schema.gql',

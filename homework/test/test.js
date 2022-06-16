@@ -1,20 +1,3 @@
-// const fruits = [ '사과', '바나나', '파인애플', "자두"];
-// const newFruits = [];
-// fruits.length - 1;
-
-
-// newFruits.push( fruits[ fruits.length - 1] );
-// console.log(newFruits);
-// --------------------------------------
-
-// const arr = [];
-// arr[0] = 1;
-// arr[1] = 2;
-// arr[3] = 3;
-// arr[0] = 0;
-// arr;
-// --------------------------------------
-
 // let str = 'age';
 
 // const obj = {
@@ -812,9 +795,9 @@
 // let map = new Map()
 // let key = 3
 // let val = 5
-// console.log(map.set(key,val))
+// console.log('맵셋', map.set(key,val))
 // map.set(2,4)
-// console.log(map.get(2))
+// console.log('이건 맵겟', map.get(2))
 
 // var twoSum = function(nums, target) {
 //     let map = new Map(); // 새로운 빈 객체를 만든다.
@@ -936,36 +919,36 @@
 // counter.increment();
 // console.log(counter.value)
 // --------------------------------------------------------
-function solution(s, n) {  
-  let a = ""; 
+// function solution(s, n) {  
+//   let a = ""; 
   
-  for(let i = 0; i < s.length; i++) {
-    let word = s[i].charCodeAt()
+//   for(let i = 0; i < s.length; i++) {
+//     let word = s[i].charCodeAt()
     
-    if(word === 32) {
-    	a += String.fromCharCode(word)
-    }
-    if(word <= 90 && word > 32){
-      if(word+n > 90){
-        let e = word + n - 26
-        a += String.fromCharCode(e)
-      } else {        
-        	let b = s[i].charCodeAt() + n;
-      		a += String.fromCharCode(b)
-      }
-    }
-    if(word >= 97 && word < 123){
-      if(word+n > 122){
-        let e = word + n - 26
-        a += String.fromCharCode(e)
-      } else {
-        let c = s[i].charCodeAt()+n;
-        a += String.fromCharCode(c)
-      }
-    }
-  }
-    return a
- }
+//     if(word === 32) {
+//     	a += String.fromCharCode(word)
+//     }
+//     if(word <= 90 && word > 32){
+//       if(word+n > 90){
+//         let e = word + n - 26
+//         a += String.fromCharCode(e)
+//       } else {        
+//         	let b = s[i].charCodeAt() + n;
+//       		a += String.fromCharCode(b)
+//       }
+//     }
+//     if(word >= 97 && word < 123){
+//       if(word+n > 122){
+//         let e = word + n - 26
+//         a += String.fromCharCode(e)
+//       } else {
+//         let c = s[i].charCodeAt()+n;
+//         a += String.fromCharCode(c)
+//       }
+//     }
+//   }
+//     return a
+//  }
 
     
 //     
@@ -1052,11 +1035,263 @@ function solution(s, n) {
 // thisIsOnlySeven("1234567890")
 
 //////////////////////////////////////////////////////////////
-let arr = [0,1,2,3,4,5,6,7,8,9]
-let arr2 = ["one", "two", "three", "four", "five", "six", "seven", "eigtht", "nine"]
+// let arr = [0,1,2,3,4,5,6,7,8,9]
+// let arr2 = ["one", "two", "three", "four", "five", "six", "seven", "eigtht", "nine"]
 
-function solution(){}
+// function solution(s){
+//   for(let i = 0; i < arr.length; i++){
+//     if(arr2[i].charCodeAt() > 64) {
+//       console.log('hi');
+//     }
+//   }
+  
+//   console.log(s)
+// }
 
-
+// solution("one4seveneight")// "one4seveneight"	1478
 // let a = "a".charCodeAt()
 // String.fromCharCode(a)
+
+
+
+
+
+
+
+// function destination(paths) {
+//   let aaa = ""
+//   for(let i = 0; i < paths.length; i++){
+//     for(let j = i+1; j < paths.length; j++){
+//       if(paths[i][1] === paths[j][0]){
+//         if(paths[0][0] === paths[paths.length - 1][1]){
+//           aaa = paths[0][1]
+//         } else {
+//         	aaa = paths[j][1]
+//         }
+//       }
+//     }
+//   }
+//  return aaa
+// }
+// destination([ ['London', 'New York'], ['New York', 'Lima'], ['Lima', 'Sao Paulo'], ])
+
+// // destination([
+// //         ['B', 'C'],
+// //         ['D', 'B'],
+// //         ['C', 'A'],
+// //       ])
+
+// destination([
+//         ['Kwangju', 'Busan'],
+//         ['Seoul', 'Ansan'],
+//         ['Ansan', 'Kwangju'],
+//       ]) // return Busan
+
+// const pattern = 'a';
+// const str = 'cup cup cup';
+// const pattern = 'abaa'
+// const str = 'dog cat cat dog'
+// const pattern = 'abba';
+// const str = 'dog cat cat dog';
+
+
+// function stringPattern(pattern, str) {
+//   // 여기에서 작업하세요.
+//   let newStr = []
+//   let newPat = []
+//   str = str.split(" ");
+//   pattern = pattern.split("");
+  
+  
+//   let bool = false;
+//   if(pattern.length !== str.length){
+//     return false;
+//   }
+//   for(let i = 0; i < str.length; i++){
+//    	newStr.push(str[i])
+//     newPat.push(pattern[i])
+//   }
+// console.log(newStr)
+// console.log(newPat)
+// }
+
+// function queue_01 (queueArr) {
+// 	// 여기에 코드를 작성하세요.
+//     let index = 0;
+//     let length = 0;
+//     for(let i = 0; i < queueArr.length; i++){
+//         for(let j = 0; j < queueArr[i].length; j++){
+//             length = length + queueArr[i].length;
+//             if(queueArr[i].includes("Me")){
+//                 length = length - 1
+//                 index = i
+//               	return [index, length]
+//             }
+//             break;
+//         }
+//     }
+// }
+// // queue_01([ [1, 2], [3, 4], [5, 6, 7], [8], ["Me"], [9, 10] ])
+// queue_01([ [1, 2, 3, 4, 5, 6], ["Me"] ])
+// const regex = / /gi;
+// function queue_02 (queueArr, limit) {
+// 	// 여기에 코드를 작성하세요.
+//   let count = 0;
+// 	let aaa = queueArr.join(",").replace(regex, '')
+//   console.log()
+//   console.log()
+// }
+// queue_02(
+//       [ [1, 2, 3], [4, 5], [6, 7], ["Junny", "Hoony"], [8] ], 
+//       4
+//     )
+// queue_02(
+//           [ [1, 2, 3], [4, 5], [6, 7], ["Junny", "Hoony"], [8] ], 
+//           3
+//         )
+// ////////////////////////////////////////////////////
+
+// function myName (user, changeName) {
+// 	// 여기에 코드를 작성하세요.
+    
+  
+// }
+// myName("철수", "훈이")
+
+// /////////////////////////////////////////////////////////
+// class Node {
+//   constructor(){
+//     this.element = 0;
+//     this.next = null;
+//   }
+// }
+
+// class LinkedList {
+//   constructor(){
+//     this.head = new Node("head");
+//   }
+  
+//   append(newElement) {
+//     	let newNode = new Node(newElement); //새로운 노드 생성
+//     	let current = this.head; // 시작 노드
+//     	while(current.next != null) { // 맨 끝 노드 찾기
+//         	current = current.next;
+//     	}
+//     	current.next = newNode;
+// 	}
+  
+//   insert(newElement, item) {
+//     	let newNode = new Node(newElement); //새로운 노드 생성
+//     	let current = this.find(item); // 삽입할 위치의 노드 찾기
+//         newNode.next = current.next; // 찾은 노드가 가리키는 노드를 새로은 노드가 가리키기
+//         current.next = newNode; // 찾은 노드는 이제부터 새로운 노드를 가리키도록 하기
+// 	}
+  
+//   find(item){
+//       let currNode = this.head;
+//       while(currNode.element !== item) {
+//         currNode = currNode.next;
+//       }
+//       return currNode;
+//     }
+  
+// }
+
+// function linkedList_01 (strArr, actions) {
+// 	// 여기에 코드를 작성하세요.
+//   let aaa = new LinkedList();
+//   for(let i = 0; i < strArr.length; i++){
+//     console.log( aaa.insert(strArr[i]) )
+    
+//   }
+  
+ 
+// }
+// linkedList_01(
+//           ["철수", "훈이", "영희", "맹구"],
+//           [ "Remove 훈이", "Insert Junny" ]
+//         )
+ // {
+ //        철수 : { next : "영희" },
+ //        영희 : { next : "맹구" },
+ //        맹구 : { next : "Junny" },
+ //        Junny : { next : null }
+ //      }
+
+/////////////////////////////////////////////////////////////
+
+// function signUp(users, hash) {
+// 	// 여기에 코드를 작성하세요.
+// 	console.log(users)
+// }
+// signUp(
+//         ["a", "b", "c"],
+//           function( str ) { 
+//             if( str === "a" ) return 1;
+//             if( str === "aa" ) return 1;
+//             if( str === "b" ) return 3;
+//             if( str === "c" ) return 5;
+//           }
+//       )
+//////////////////////////////////////////////////////////
+// const pattern = 'abba';
+// const str = 'dog cat cat dog';
+// function stringPattern(pattern, str) {
+//   let aaa = new Map();
+//   let bbb = str.split(" ");
+  
+//   if(pattern.length !== bbb.length) {
+//     return false;
+//   }
+  
+//   for(let i = 0; i < bbb.length; i++){
+//     if(aaa.has(pattern[i])){
+//       if( aaa.get(pattern[i]) !== bbb[i] ){
+//         return false;
+//       }
+//       else {
+//         return true;
+//       }
+//     }
+//     else{
+//       aaa.set(pattern[i], bbb[i])
+//     }
+//   }
+// }
+// stringPattern(pattern, str)
+
+// //////////////////////////////////////////////////////////
+
+function destination(paths) {
+  // 여기에서 작업하세요.
+  let start = paths[0][0]
+  let aaa = new Map();
+  for(let i = 0; i < paths.length; i++){
+	    aaa.set(paths[i][0], paths[i][1])
+  }
+ 
+  for(let i = 0; i < pahts.length; i++){
+    
+  }
+  if(aaa.has( start) ){
+    start = aaa.get(start);
+    console.log("11111111", start)
+  }
+  else {
+    console.log("=====", start)
+    return aaa.get(start)
+  }
+  
+  console.log(start)
+ // return
+}
+destination([
+        ['London', 'New York'],
+        ['New York', 'Lima'],
+        ['Lima', 'Sao Paulo'],
+      ])
+// destination([
+//         ['Kwangju', 'Busan'],
+//         ['Seoul', 'Ansan'],
+//         ['Ansan', 'Kwangju'],
+//       ])

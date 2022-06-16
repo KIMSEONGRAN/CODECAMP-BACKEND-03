@@ -1,16 +1,28 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Field, ObjectType } from '@nestjs/graphql';
+import { Webtoon } from 'src/apis/webtoons/entities/webtoon.entity';
+import {
+  Column,
+  DeleteDateColumn,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
+@ObjectType()
 export class Image {
   @PrimaryGeneratedColumn('uuid')
+  @Field(() => String)
   id: string;
 
   @Column()
-  eThumbnailId: string;
+  @Field(() => String)
+  contents_URL: string;
 
-  @Column()
-  contents: string;
+  @ManyToOne(() => Webtoon)
+  @Field(() => String)
+  webtoonId: string;
 
-  @Column()
-  mThumbnailId: string;
+  @DeleteDateColumn()
+  deletedAt: Date;
 }

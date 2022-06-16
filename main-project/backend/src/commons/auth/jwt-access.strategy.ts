@@ -12,7 +12,7 @@ export class JwtAccessStrategy extends PassportStrategy(Strategy, 'myGuard') {
   // 성공하면 실행되는 곳
   // user부분
   validate(payload) {
-    console.log('payload', payload);
+    // console.log('payload', payload);
     return {
       email: payload.email,
       id: payload.sub,

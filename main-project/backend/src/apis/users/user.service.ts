@@ -34,7 +34,6 @@ export class UserService {
   async create({ email, hashedPassword: pwd, phoneNum, name }) {
     const user = await this.userRepository.findOne({ email });
     if (user) throw new ConflictException('이미 등록된 이메일입니다');
-    console.log('sads');
     return await this.userRepository.save({ email, pwd, phoneNum, name });
   }
 

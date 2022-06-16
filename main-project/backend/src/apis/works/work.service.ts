@@ -22,7 +22,6 @@ export class WorkService {
     private readonly genreRepository: Repository<Genre>,
   ) {}
 
-
   // 여러개조회 ===================================================  findAll
   async findAll() {
     return await this.workRepository.find({
@@ -65,12 +64,16 @@ export class WorkService {
       }
     }
 
+    // console.log(arr);
+
     const result = await this.workRepository.save({
       ...work,
       artist: result2,
       writer: result1,
-      genres: arr,
+      genres: {...arr},
     });
+
+    console.log(result)
     return result;
   }
 
@@ -109,7 +112,6 @@ export class WorkService {
     });
   }
 
-  
   // 복구 ==================================================== restoreProduct
   async restoreProduct({ workId }) {
     const result = await this.workRepository.restore({ id: workId });

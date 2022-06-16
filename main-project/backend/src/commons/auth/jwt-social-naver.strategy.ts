@@ -25,6 +25,8 @@ export class JwtNaverStrategy extends PassportStrategy(Strategy, 'naver') {
     console.log('=================================================');
     const profile_json = profile._json;
 
+    // 회원가입을 할 경우에는 Entity에 의거해서 데이터를 리턴해주어야 한다.
+    // 이 값이 controller의 req로 들어간다
     return {
       id: profile_json.id,
       email: profile_json.email,

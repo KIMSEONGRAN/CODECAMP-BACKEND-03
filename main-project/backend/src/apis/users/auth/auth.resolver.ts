@@ -26,10 +26,12 @@ export class AuthResolver {
         if(!user) throw new UnprocessableEntityException('이메일이 없습니다!!')
 
         // 일치하는 유저는 있되, 비번은 틀린 유저에게 던지는 에러
+        // 복호화를해서 비교를 한다.
         const isAuth = await bcrypt.compare(password, user.pwd);
         if(!isAuth) throw new UnprocessableEntityException('암호가 틀렸습니다!!');
 
 
+        // 리프레쉬 토큰을 만들어둠. 이때 이 토큰이 쿠키에 들어감. 이러고 끝임.
         this.authService.setRefreshToken({user, res: context.req.res})
 
         // 로그인시 회원의 아이디와 비밀번호가 검증되면 accessToken을 만들어 클라이언트에게 보내줍니다.

@@ -7,14 +7,6 @@ type Artist {
   name: String!
 }
 
-type User {
-  id: String!
-  pwd: String!
-  name: String!
-  email: String!
-  phoneNum: String!
-}
-
 type Day {
   id: String!
   day: DateTime!
@@ -25,6 +17,12 @@ type Day {
 A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
 """
 scalar DateTime
+
+type Genre {
+  id: String!
+  genres: String!
+  works: [Work!]!
+}
 
 type Writer {
   id: String!
@@ -42,26 +40,64 @@ type Work {
   days: [Day!]!
 }
 
-type Genre {
+type Webtoon {
   id: String!
-  genres: String!
-  works: [Work!]!
+  episode: String!
+  workId: Work!
+}
+
+type Image {
+  id: String!
+  contents_URL: String!
+  webtoonId: String!
+}
+
+type User {
+  id: String!
+  pwd: String!
+  name: String!
+  email: String!
+  phoneNum: String!
+  pay: Int!
+}
+
+type Payment {
+  id: String!
+  impUid: String!
+  amount: Int!
+  status: PAYMENT_STATUS_ENUM!
+  user: User!
+  createdAt: DateTime!
+}
+
+enum PAYMENT_STATUS_ENUM {
+  PAYMENT
+  CANCEL
 }
 
 type Query {
   fetchWorks: [Work!]!
   fetchWork(workId: String!): Work!
   fetchProductsWithDeleted: [Work!]!
+  fetchWebtoon: [Webtoon!]!
+  fetchWebtoonWithDeleted: [Webtoon!]!
   fetchUsers: [User!]!
   fetchUser(email: String!): User!
   fetchLoginUser: User!
 }
 
 type Mutation {
+  createImage(contents_URL: String!, webtoonId: String!): Image!
+  updateImage(webtoonId: String!, contents_URL: String!): Image!
   createWork(createWorkInput: CreateWorkInput!): Work!
   updateWork(workId: String!, updateWorkInput: UpdateWorkInput!): Work!
   deleteWork(workId: String!): Boolean!
   restoreProduct(workId: String!): Boolean!
+  createWebtoon(WebtoonInput: CreateWebtoonInput!): Webtoon!
+  updateWebtoon(updateWebtoon: UpdateWebtoonInput!): Webtoon!
+  deleteWebtoon(workId: String!): Boolean!
+  restoreWebtoon(workId: String!): Boolean!
+  uploadImg(files: [Upload!]!): [String!]!
   createWriter(name: String!): Artist!
   updatePwd(userId: String!, password: String!, updateUserInput: UpdateUserInput!): User!
   createUser(email: String!, phoneNum: String!, name: String!, pwd: String!): User!
@@ -71,6 +107,9 @@ type Mutation {
   deleteLoginUser: Boolean!
   login(email: String!, password: String!): String!
   restoreAccessToken: String!
+  createPayment(impUid: String!, amount: Float!): Payment!
+  cancelPayment(impUid: String!): Payment!
+  uploadFile(files: [Upload!]!): [String!]!
 }
 
 input CreateWorkInput {
@@ -96,6 +135,21 @@ input UpdateWorkInput {
   writer: CreateWriterInput
   genres: [String!]
 }
+
+input CreateWebtoonInput {
+  episode: String!
+  workId: String!
+  url: [String!]!
+}
+
+input UpdateWebtoonInput {
+  episode: String
+  workId: String
+  url: [String!]
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
 
 input UpdateUserInput {
   pwd: String

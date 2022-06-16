@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { write } from 'fs';
 import { Artist } from '../artists/entities/artist.entity';
 import { Genre } from '../genres/entities/genre.entity';
 import { Writer } from '../writers/entities/writer.entity';

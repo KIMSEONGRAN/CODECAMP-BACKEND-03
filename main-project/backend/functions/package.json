@@ -1,0 +1,9 @@
+{
+  "name": "sample-cloud-storage",
+  "version": "0.0.1",
+  "description": "Create Thumbnail of uploaded image",
+  "dependencies": {
+    "@google-cloud/storage": "^5.0.0",
+    "sharp": "^0.30.1"
+  }
+}
