@@ -32,7 +32,7 @@ import { FileModule } from './apis/file/file.module';
       port: 3306,
       username: 'root',
       password: 'root',
-      database: 'mypdocker03',
+      database: 'mydocker03',
       entities: [__dirname + '/apis/**/*.entity.*'], // 현재 경로(__dirname)에서 apis로 들어가서 그 안에 모든폴더에 들어가서(**) 모든 entity.ts로 끝나는 파일 연결하겠다.
       synchronize: true, // 동기화 시켜주겠다.
       logging: true, // 쿼리문에 대한 로그
