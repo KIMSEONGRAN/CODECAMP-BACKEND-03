@@ -1,5 +1,6 @@
 import { PassportStrategy } from '@nestjs/passport';
 import { Strategy } from 'passport-jwt';
+import 'dotenv/config';
 
 export class JwtRefreshStrategy extends PassportStrategy(Strategy, 'refresh') {
   constructor() {
@@ -12,7 +13,7 @@ export class JwtRefreshStrategy extends PassportStrategy(Strategy, 'refresh') {
 
         return refreshToken; // 최종적으론 리프레쉬토큰만 나가야함. 뒤에 뭐가 오면 안댐.
       },
-      secretOrKey: 'myRefreshkey',
+      secretOrKey: process.env.REFRESH_TOKEN_KEY,
     });
   }
 
@@ -26,3 +27,4 @@ export class JwtRefreshStrategy extends PassportStrategy(Strategy, 'refresh') {
     };
   }
 }
+

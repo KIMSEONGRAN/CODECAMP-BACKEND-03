@@ -1262,36 +1262,197 @@
 
 // //////////////////////////////////////////////////////////
 
-function destination(paths) {
-  // 여기에서 작업하세요.
-  let start = paths[0][0]
-  let aaa = new Map();
-  for(let i = 0; i < paths.length; i++){
-	    aaa.set(paths[i][0], paths[i][1])
-  }
+// function destination(paths) {
+//   // 여기에서 작업하세요.
+//   let start = paths[0][0]
+//   let aaa = new Map();
+//   for(let i = 0; i < paths.length; i++){
+// 	    aaa.set(paths[i][0], paths[i][1])
+//   }
  
-  for(let i = 0; i < pahts.length; i++){
-    
-  }
-  if(aaa.has( start) ){
-    start = aaa.get(start);
-    console.log("11111111", start)
-  }
-  else {
-    console.log("=====", start)
-    return aaa.get(start)
-  }
-  
-  console.log(start)
- // return
-}
-destination([
-        ['London', 'New York'],
-        ['New York', 'Lima'],
-        ['Lima', 'Sao Paulo'],
-      ])
+//   for(let i = 0; i < paths.length; i++){
+//     if(!aaa.has( start) ){
+//       return aaa.get(start)
+      
+//       console.log("11111111", start)
+//   	}
+//     else {
+//       start = aaa.get(start);
+//       console.log("=====", start)
+//     }
+//   }
+//  return start
+// }
+// destination([
+//         ['London', 'New York'],
+//         ['New York', 'Lima'],
+//         ['Lima', 'Sao Paulo'],
+//       ])
 // destination([
 //         ['Kwangju', 'Busan'],
 //         ['Seoul', 'Ansan'],
 //         ['Ansan', 'Kwangju'],
 //       ])
+
+// ===========================================================
+
+// function solution(n){
+//   let aaa = n.toString(3)
+//   let bbb = []
+//   for(let i = aaa.length-1; i >= 0; i--){
+//     bbb.push(aaa[i])
+//   }
+//   return Number.parseInt(bbb.join(""), 3)
+// }
+// solution(45)
+
+// =====================================================
+
+// function solution(s){
+//   let aaa = s.split("");
+//   let bbb = []
+//   let zero = 0;
+//   // console.log(aaa);
+//   for(let i = 0; i < s.length; i++){
+//     if(aaa[i] !== "0"){
+//       bbb.push(aaa[i])
+//     } else {
+//       zero++;
+//     }
+//   }
+//   let ccc = bbb.join("")
+//   console.log(zero)
+//   console.log(ccc)
+//   // console.log(Number.parseInt(ccc, 2));
+//   const a = /0/g
+//   s.replace(a, "")
+// }
+// solution("110010101001")
+
+// function solution(s){
+//   let zero = 0;
+//   let count = 0;
+  
+//   while(s !== "1"){
+//     let aaa = s.replace(/0/g, ""); // 이진수
+//     zero = zero + (s.length - aaa.length);
+//     s = aaa
+//     count++
+//   }
+//   return [count, zero]
+// }
+// solution("110010101001")
+
+
+// function queue_02 (queueArr, limit) {
+// 	// 여기에 코드를 작성하세요.
+//   const regex = / /gi;
+// 	console.log(queueArr.join(","))
+// 	let aaa = queueArr.join(",")
+//   // console.log("aaa", aaa)
+//   return Math.ceil((aaa.split(",").indexOf("Hoony") + 1)/limit)
+
+// }
+
+// queue_02(
+//       [ [1, 2, 3], [4, 5], [6, 7], ["Junny", "Hoony"], [8] ], 
+//       4
+//     )
+// ==============================================================
+
+// function solution(new_id) {
+//   const newId = new_id.split("")
+//   let i = 0;
+//   const ascii = newId[i].charCodeAt();
+//   const arr = [];
+  
+//   for(; i < newId.length; i++){
+//     if(ascii > 64 && ascii < 91){
+//       arr.push(newId[i].toLowerCase())
+//     } else {
+//       arr.push(newId[i])
+//     }
+//   }
+//   console.log(arr);
+// }
+// solution("...!@BaT#*..y.abcdefghijklm") // "bat.y.abcdefghi"
+// solution("z-+.^.") // "z--"
+// solution("=.=") // "aaa"
+// solution("123_.def") // "123_.def"
+// solution("abcdefghijklmn.p") // "abcdefghijklmn"
+// =================================================================
+
+// function O_2n (num) {
+//     // 여기에 코드를 작성하세요
+
+//     function aaa(bbb){
+//         if(bbb === 0 || bbb === 1) {
+//             return bbb;
+//         }
+
+
+
+//         return aaa(bbb-1)+aaa(bbb-2)
+//     }
+//     return aaa(num)
+
+// }
+// O_2n( 8 )
+
+
+
+// function O_log_n(arr, target) {
+//     // 여기에 코드를 작성하세요
+//   let low = 0;
+//   let high = arr.length-1;
+//   let count = 0
+//   // console.log(mid)
+  
+//   while(low<=high){
+//     count++
+//  		 let mid = Math.ceil((low+high)/2);
+    
+//   	if(arr[mid] === target) {
+//       console.log(count)
+//     	return mid;
+//   	}
+    
+//     if( arr[mid] < target ){
+//       low = mid + 1;
+//     }
+//     else if( arr[mid] > target ){
+//       high = mid - 1;
+//     }
+    
+//   }   
+// }
+// O_log_n( 
+//         [
+//             1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+//             11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+//             21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
+//             31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+//             41, 42, 43, 44, 45, 46, 47, 48, 49, 50
+//         ],
+//         50
+//     )
+
+// ==========================================================
+
+function addDash(str) {
+  // 여기에서 작업하세요.
+  let aaa = str.split("")
+  let arr = []
+  console.log("여기는 초기", aaa)
+  
+  for(let i = 0; i < aaa.length; i++){
+    if(aaa[i] === aaa[i+1]){
+      	arr.push(aaa[i])
+        arr.push("-");
+    } else {
+      arr.push(aaa[i])
+    }		
+  }
+  console.log("여기는 결과값", arr)
+}
+addDash('seoullaarizona')

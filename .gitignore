@@ -1,5 +1,7 @@
 node_modules
 .env
+
 gcp-file-storage.json
+gcp-bigquery.json
 
 # 커밋할때 해당파일 안올리게 막는 용도

@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import 'dotenv/config';
 
 @Injectable()
 export class AuthService {
@@ -12,7 +13,7 @@ export class AuthService {
   setRefreshToken({ user, res }) {
     const refreshToken = this.jwtService.sign(
       { email: user.email, sub: user.id },
-      { secret: 'myRefreshkey', expiresIn: '2w' }, // secret은 accessToken과 다를 수록 좋고 만료기한 또한 길어야한다.
+      { secret: process.env.REFRESH_TOKEN_KEY, expiresIn: '2w' }, // secret은 accessToken과 다를 수록 좋고 만료기한 또한 길어야한다.
     );
     // > 실제 배포시엔 다음과 같다.
     // 배포환경
@@ -35,7 +36,7 @@ export class AuthService {
     return this.jwtService.sign(
       // 아래의 부분이 user.resolver의 currentUser에 담긴다
       { email: user.email, sub: user.id }, // 토큰에 담을 정보. 보통은 중요하지 않은 정보를 담는다. 이 데이터를 기준으로 암호화가 되고 복호화(는 아니지만) 판별을 이 데이터로 한다.
-      { secret: 'myAccessKey', expiresIn: '1h' }, // 내가 설정한 key와 토큰의 만료기한을 적는다.
+      { secret: process.env.ACCESS_TOKEN_KEY, expiresIn: '1h' }, // 내가 설정한 key와 토큰의 만료기한을 적는다.
     );
   }
 }
