@@ -1439,20 +1439,95 @@
 
 // ==========================================================
 
-function addDash(str) {
-  // 여기에서 작업하세요.
-  let aaa = str.split("")
-  let arr = []
-  console.log("여기는 초기", aaa)
+// function addDash(str) {
+//   // 여기에서 작업하세요.
+//   let aaa = str.split("")
+//   let arr = []
+//   console.log("여기는 초기", aaa)
   
-  for(let i = 0; i < aaa.length; i++){
-    if(aaa[i] === aaa[i+1]){
-      	arr.push(aaa[i])
-        arr.push("-");
-    } else {
-      arr.push(aaa[i])
-    }		
+//   for(let i = 0; i < aaa.length; i++){
+//     if(aaa[i] === aaa[i+1]){
+//       	arr.push(aaa[i])
+//         arr.push("-");
+//     } else {
+//       arr.push(aaa[i])
+//     }		
+//   }
+//   console.log("여기는 결과값", arr.join(""))
+// }
+// addDash('seoullaarizona')
+
+// =============================================================
+
+// function topsyTurvy(str, arr) {
+  
+//   let aaa = new Map();
+//   for(let i = 0; i < arr.length; i++){
+//     aaa.set(arr[i], str[i])
+//     console.log(aaa)
+//   }
+  
+//   let arr2 = ""
+  
+//   for(let i = 0; i < arr.length; i++){
+//     arr2 = arr2 + aaa.get(i);
+//   }
+//   console.log(arr2)
+  
+  
+//   // console.log(aaa.get(1))
+// }
+// topsyTurvy('campcode', [4, 5, 6, 7, 0, 1, 2, 3])
+
+// ===============================================================
+
+// function alphabetSwap(str1, str2) {
+//   // 여기에서 작업하세요.
+//   if(str1 === str2) return true;
+  
+//   let count = 0;
+//   for(let i = 0; i < str1.length; i++){
+//     if(str1[i] === str2[i]) {
+//       count++
+//     }
+//   }
+  
+// 	console.log(count);
+  
+//   if( str1.length/2 === count ) {
+//     return true;
+//   } else {
+//   	return false;
+//   }
+  
+  
+// }
+// alphabetSwap('bank', 'kanb') // true
+// alphabetSwap('alphabet', 'tlpaabeh') // false
+// alphabetSwap('code', 'cdeo') // false
+// alphabetSwap('camp', 'macp') // true
+// alphabetSwap('coffee', 'coffee') // true
+
+// =====================================================
+
+function solution(people, limit) {
+  people.sort((a,b) => b-a);
+  
+  let count = 0;
+  for(let i = 0; i < people.length; i++){
+    // console.log(people[i])
+   	for(let j = i + 1; j < people.length; j++){
+      console.log(people[i], people[j], people[i]+people[j])
+      if(people[i]+people[j] <= limit){
+        people.splice(i, 1);
+        people.splice(j, 1);
+        count++;
+        people.pop()
+      }
+    } 
   }
-  console.log("여기는 결과값", arr)
+  console.log(count)
+  console.log(people)
 }
-addDash('seoullaarizona')
+
+solution([70, 50, 80, 50], 100)
