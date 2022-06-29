@@ -10,6 +10,7 @@ import { AuthModule } from './apis/auth/auth.module';
 import { PointTransactionModule } from './apis/pointTransaction/pointTransaction.module';
 import { PaymentMoudle } from './apis/payment/payment/payment.module';
 import { FileModule } from './apis/file/file.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { FileModule } from './apis/file/file.module';
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: '172.22.208.5',
+      // host: 'mydatabase',
       port: 3306,
       username: 'root',
       password: 'root',
@@ -38,5 +40,6 @@ import { FileModule } from './apis/file/file.module';
       logging: true, // 쿼리문에 대한 로그
     }),
   ],
+  controllers: [AppController],
 })
 export class AppModule {}
