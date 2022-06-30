@@ -22,4 +22,4 @@ steps:
     - my-backend03-sha256-1=asia.gcr.io/bustling-tuner-352601/my-backend03:14
   env:
     - CLOUDDSDK_COMPUTE_ZONE=asia-northest3
-    - CLOUDSDK_CONAINER_CLUSTER=autopilot-cluster-2
+    - CLOUDSDK_CONAINER_CLUSTER=autopilot-cluster-1
