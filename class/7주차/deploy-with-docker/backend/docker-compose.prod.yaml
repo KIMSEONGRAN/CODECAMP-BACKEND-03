@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   my-backend:
-    image: asia.gcr.io/bustling-tuner-352601/my-backend03:13
+    image: asia.gcr.io/bustling-tuner-352601/my-backend03:14
     build:
       context: .
       dockerfile: Dockerfile
