@@ -1,7 +1,7 @@
 steps:
   # 1단계 => docker-compose -f docker-compose.prod.yaml build
   - name: docker/compose:1.29.0
-    args: 
+    args:
       - -f
       - class/7주차/deploy-with-docker/backend/docker-compose.prod.yaml
       - build
@@ -14,12 +14,12 @@ steps:
       - push
 
   # 3단계 => kubectl set image deployment/mybackend my-backend03-sha256-1=asia.gcr.io/bustling-tuner-352601/my-backend03:12
-- name: gcr.io/cloud-builders/kubectl
-  args:
-    - set
-    - image
-    - deployment/mybackend
-    - my-backend03-sha256-1=asia.gcr.io/bustling-tuner-352601/my-backend03:14
-  env:
-    - CLOUDDSDK_COMPUTE_ZONE=asia-northest3
-    - CLOUDSDK_CONAINER_CLUSTER=autopilot-cluster-1
+  - name: gcr.io/cloud-builders/kubectl
+    args:
+      - set
+      - image
+      - deployment/mybackend
+      - my-backend03-sha256-1=asia.gcr.io/bustling-tuner-352601/my-backend03:15
+    env:
+      - CLOUDDSDK_COMPUTE_ZONE=asia-northest3
+      - CLOUDSDK_CONAINER_CLUSTER=autopilot-cluster-1
